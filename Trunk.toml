@@ -1,0 +1,5 @@
+[serve]
+port = 3000
+
+[tools]
+sass = "1.50.0"

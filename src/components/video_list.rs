@@ -11,15 +11,25 @@ pub struct Video {
 #[derive(Properties, PartialEq)]
 pub struct VideosListProps {
     pub videos: Vec<Video>,
+    pub on_click: Callback<Video>,
 }
 
 #[function_component(VideosList)]
-pub fn videos_list(VideosListProps { videos }: &VideosListProps) -> Html {
+pub fn videos_list(VideosListProps { videos, on_click }: &VideosListProps) -> Html {
     videos
         .iter()
         .map(|video| {
+            let on_video_select = {
+                let on_click = on_click.clone();
+                let video = video.clone();
+                Callback::from(move |_: MouseEvent| on_click.emit(video.clone()))
+                // !notice there is no ";" in here, we are returning callback!!!
+            };
+
             html! {
-                <p>{format!("{}: {}", video.speaker, video.title)}</p>
+                <div class="card">
+                    <p onclick={on_video_select}>{format!("{}: {}", video.speaker, video.title)}</p>
+                </div>
             }
         })
         .collect()
