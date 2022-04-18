@@ -1,0 +1,22 @@
+main.landing {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; // replace with generic size
+
+    header {
+        grid-column: 1 / span 4;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: rgb(100, 100, 100);
+        color: #fff;
+    }
+    
+    section {
+        grid-column: 1 / span 4;
+        display: grid;
+        grid-template-columns: subgrid;
+        gap: 1rem; // replace with generic size
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
