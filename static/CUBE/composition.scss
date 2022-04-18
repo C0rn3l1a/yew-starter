@@ -1,14 +1,14 @@
+
+// LANDING PAGE
 main.landing {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(auto, 25%));
     gap: 1rem; // replace with generic size
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     header {
         grid-column: 1 / span 4;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        background-color: rgb(100, 100, 100);
-        color: #fff;
     }
     
     section {
@@ -16,7 +16,38 @@ main.landing {
         display: grid;
         grid-template-columns: subgrid;
         gap: 1rem; // replace with generic size
-        padding-left: 1rem;
-        padding-right: 1rem;
+    }
+}
+
+
+// NAVBAR
+nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgba(100, 100, 100);
+
+    ul, li {
+        display: contents;
+    }
+
+    a {
+        color: #fff;
+        
+        &:visited {
+            color: hsl(25, 100%, 85%);
+        }
+        
+        &:focus, &:hover {
+            color: hsl(25, 100%, 65%);
+        }
+        
+        &:active {
+            color: hsl(25, 100%, 55%);
+        }
     }
 }
